@@ -5,7 +5,7 @@
 
 # Chainlink Services:
 
-## Chainlink VRF -> Contract deployed to Mumbai: 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8
+## Chainlink VRF -> Contract deployed to Mumbai: 0x9cAB8fCc0F423c722fe134c872D3812f3005BA65
 
 <img width="891" alt="image" src="https://github.com/SW-SignWise/SmartContracts/assets/102038261/75785697-d89e-4ab6-808b-0fb2f7fa0eab">
 
