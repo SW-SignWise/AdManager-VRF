@@ -3,16 +3,18 @@
 - Blockchain -> Polygon / ZK Polygon
 - Service Manager: 0xF160b254f173A677cb05E68b130BB37bE1B12b75
 
-  
 # Chainlink Services:
 
-## Chainlink VRF
+## Chainlink VRF -> Contract deployed to Mumbai: 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8
+
 <img width="891" alt="image" src="https://github.com/SW-SignWise/SmartContracts/assets/102038261/75785697-d89e-4ab6-808b-0fb2f7fa0eab">
 
 ### Config (Mumbai):
+
 - Create Subscription VRF: https://vrf.chain.link/
 - Faucet Link / Mumbai: https://faucets.chain.link/mumbai
-- Chainlink Token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB 
+- Chainlink Token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
+
 ```
 LINK Token ->	0x326C977E6efc84E512bB9C30f76E30c160eD06FB
 
