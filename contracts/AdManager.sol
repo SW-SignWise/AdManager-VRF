@@ -11,15 +11,16 @@ contract AdManager is VRFConsumerBaseV2 {
     address vrfCoordinator = 0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed; // Polygon Mumbai
     bytes32 s_keyHash =
         0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f;
-    uint32 callbackGasLimit = 40000;
-    uint16 requestConfirmations = 1;
+    uint32 callbackGasLimit = 100000;
+    uint16 requestConfirmations = 3;
 
-    // For this example, retrieve 1 random value in one request.
-    // Cannot exceed VRFCoordinatorV2.MAX_NUM_WORDS.
-    uint32 numWords = 1;
+    uint32 numWords = 1; // How many random numbers.
     address s_owner;
 
-    event newRandomAd(uint256 indexed adIndex);
+    uint256 public lastRandomNum;
+
+    event newRandomAd(uint256 indexed requestId);
+    event randomNumLanded(uint256 indexed requestId, uint256[] randomWords);
 
     modifier onlyOwner() {
         require(msg.sender == s_owner);
@@ -43,14 +44,11 @@ contract AdManager is VRFConsumerBaseV2 {
      * @notice Requests randomness
      * @dev Warning: if the VRF response is delayed, avoid calling requestRandomness repeatedly
      * as that would give miners/VRF operators latitude about which VRF response arrives first.
-     * @dev You must review your implementation details with extreme care.
+     * @dev Query for new Random Num.
      *
-     * @param adsLength max index value. This value will determine the Index of the available Ads to show next time.
      */
-    function getRandomAd(
-        uint256 adsLength
-    ) public onlyOwner returns (uint256 adIndex) {
-        uint256 requestId = COORDINATOR.requestRandomWords(
+    function requestRandomWords() public onlyOwner returns (uint256 requestId) {
+        requestId = COORDINATOR.requestRandomWords(
             s_keyHash,
             s_subscriptionId,
             requestConfirmations,
@@ -58,14 +56,16 @@ contract AdManager is VRFConsumerBaseV2 {
             numWords
         );
 
-        adIndex = requestId % adsLength;
-
-        emit newRandomAd(adIndex);
+        emit newRandomAd(requestId);
     }
 
-    // Needed to override for compilation, not needed as random number is emitted while request on the event "newRandomAd".
+    // Call back to receive the Random Number
     function fulfillRandomWords(
         uint256 requestId,
         uint256[] memory randomWords
-    ) internal override {}
+    ) internal override {
+        lastRandomNum = randomWords[0];
+
+        emit randomNumLanded(requestId, randomWords);
+    }
 }
