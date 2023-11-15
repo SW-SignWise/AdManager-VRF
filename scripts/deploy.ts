@@ -4,7 +4,7 @@ require("dotenv").config();
 async function main() {
   const AdManager = await ethers.getContractFactory("AdManager");
   const adManager = await AdManager.deploy(
-    process.env.VRF_SUBSCRIPTION_ID?.toString()!
+    Number(process.env.VRF_SUBSCRIPTION_ID)
   );
 
   console.log(`Ad Manager is deployed to: ${await adManager.getAddress()}`);

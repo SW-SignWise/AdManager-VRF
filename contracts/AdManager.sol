@@ -17,7 +17,7 @@ contract AdManager is VRFConsumerBaseV2 {
     bytes32 s_keyHash =
         0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f; // Key hash for VRF
     uint32 callbackGasLimit = 100000; // Gas limit for VRF callback
-    uint16 requestConfirmations = 1; // Number of confirmations required for VRF request
+    uint16 requestConfirmations = 3; // Number of confirmations required for VRF request
 
     uint32 numWords = 1; // Number of random numbers to request
     address s_owner; // Address of the contract owner
