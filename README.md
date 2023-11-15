@@ -5,13 +5,7 @@
 
 # Chainlink Services:
 
-<<<<<<< HEAD
 ## Chainlink VRF -> Contract deployed to Mumbai: <a href="https://mumbai.polygonscan.com/address/0x994025BE97BeBF10B13817C46633AC47Ec2f8eb0">0x994025BE97BeBF10B13817C46633AC47Ec2f8eb0</a>
-=======
-## Chainlink VRF
-
-- Contract deployed to Mumbai: <a href="https://mumbai.polygonscan.com/address/0xEf118AEbCB032DeB9599f17132C6DEe79F956a72">0xEf118AEbCB032DeB9599f17132C6DEe79F956a72</a>
->>>>>>> a76afefa82b29f19221f1b52c58b31f3f74e2106
 
 - Subscription VRF: https://vrf.chain.link/mumbai/6471
   <img width="891" alt="image" src="https://github.com/SW-SignWise/SmartContracts/assets/102038261/75785697-d89e-4ab6-808b-0fb2f7fa0eab">
