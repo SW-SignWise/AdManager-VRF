@@ -20,7 +20,8 @@ contract AdManager is VRFConsumerBaseV2 {
     uint256 public lastRandomNum;
 
     event newRandomAd(uint256 indexed requestId);
-    event randomNumLanded(uint256 indexed requestId, uint256[] randomWords);
+    event randomWordLanded(uint256 indexed requestId, uint256[] randomWords);
+    event numWordsUpdated(uint8 numWordsUpdated);
 
     modifier onlyOwner() {
         require(msg.sender == s_owner);
@@ -64,8 +65,12 @@ contract AdManager is VRFConsumerBaseV2 {
         uint256 requestId,
         uint256[] memory randomWords
     ) internal override {
-        lastRandomNum = randomWords[0];
+        emit randomWordLanded(requestId, randomWords);
+    }
 
-        emit randomNumLanded(requestId, randomWords);
+    function updateAmountWords(uint8 _numWords) external onlyOwner {
+        require(numWords != 0, "numWords must be non-zero");
+        numWords = _numWords;
+        emit numWordsUpdated(_numWords);
     }
 }
