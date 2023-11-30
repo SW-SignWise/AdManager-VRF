@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.23;
+pragma solidity 0.8.19;
 
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
@@ -13,9 +13,9 @@ contract AdManager is VRFConsumerBaseV2 {
     VRFCoordinatorV2Interface COORDINATOR;
 
     uint64 s_subscriptionId; // Subscription ID for VRF
-    address vrfCoordinator = 0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed; // Polygon Mumbai VRF Coordinator address
+    address vrfCoordinator = 0x2eD832Ba664535e5886b75D64C46EB9a228C2610; // Avax-Fuji VRF Coordinator address
     bytes32 s_keyHash =
-        0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f; // Key hash for VRF
+        0x354d2f95da55398f44b7cff77da56283d9c6c829a4bdf1bbcaf2ad6a4d081f61; // Key hash for VRF
     uint32 callbackGasLimit = 100000; // Gas limit for VRF callback
     uint16 requestConfirmations = 3; // Number of confirmations required for VRF request
 
