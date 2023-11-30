@@ -29,9 +29,13 @@ const config: HardhatUserConfig = {
       url: process.env.RPC_POLYGON_MAINNET!,
       accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY2!],
     },
+    snowtrace: {
+      url: 'https://api.avax-test.network/ext/bc/C/rpc',
+      accounts: [process.env.PRIVATE_KEY!]
+    },
   },
   solidity: {
-    version: "0.8.23",
+    version: "0.8.19",
     settings: {
       optimizer: {
         enabled: true,
@@ -51,7 +55,18 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       polygonMumbai: process.env.SCAN_MUMBAI_API_KEY?.toString()!,
+      snowtrace: "snowtrace", // apiKey is not required, just set a placeholder
     },
+    customChains: [
+      {
+        network: "snowtrace",
+        chainId: 43113,
+        urls: {
+          apiURL: "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
+          browserURL: "https://avalanche.testnet.routescan.io"
+        }
+      }
+    ]
   },
 };
 
