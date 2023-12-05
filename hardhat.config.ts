@@ -3,12 +3,12 @@ import "@nomicfoundation/hardhat-toolbox";
 require("dotenv").config();
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "PolygonTestnet",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      chainId: 80001,
+      chainId: 43113,
       forking: {
-        url: process.env.RPC_POLYGON_TESTNET!,
+        url: process.env.RPC_FUJI_TESTNET!,
       },
       accounts: [
         {
@@ -21,8 +21,8 @@ const config: HardhatUserConfig = {
         },
       ],
     },
-    PolygonTestnet: {
-      url: process.env.RPC_POLYGON_TESTNET!,
+    AvaxFuji: {
+      url: process.env.RPC_FUJI_TESTNET!,
       accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY2!],
     },
     PolygonMainet: {
@@ -30,8 +30,8 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY2!],
     },
     snowtrace: {
-      url: 'https://api.avax-test.network/ext/bc/C/rpc',
-      accounts: [process.env.PRIVATE_KEY!]
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      accounts: [process.env.PRIVATE_KEY!],
     },
   },
   solidity: {
@@ -62,11 +62,12 @@ const config: HardhatUserConfig = {
         network: "snowtrace",
         chainId: 43113,
         urls: {
-          apiURL: "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
-          browserURL: "https://avalanche.testnet.routescan.io"
-        }
-      }
-    ]
+          apiURL:
+            "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
+          browserURL: "https://avalanche.testnet.routescan.io",
+        },
+      },
+    ],
   },
 };
 
