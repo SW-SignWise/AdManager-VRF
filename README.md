@@ -1,6 +1,6 @@
 # AdManager - Powered by Chainlink VRF
 
-The primary objective of the [AdManager contract](https://testnet.snowtrace.dev/address/0x83f6E1Cf1Dbf7bd90a85E6b85e5d4366FBA08C28) is to offer a fair and unbiased method for selecting the next advertisement to display. At SignWise, we advocate equal visibility for all companies, prioritizing  randomness over favoring a specific company willing to pay more for their ads to appear first. Leveraging the capabilities of [Chainlink's Verifiable Randomness Function (VRF)](https://docs.chain.link/vrf), we achieve this impartial selection process.
+The primary objective of the [*AdManager Smart Contract*](https://testnet.snowtrace.dev/address/0x83f6E1Cf1Dbf7bd90a85E6b85e5d4366FBA08C28) is to offer a fair and unbiased method for selecting the next advertisement to display. At SignWise, we advocate equal visibility for all companies, prioritizing  randomness over favoring a specific company willing to pay more for their ads to appear first. Leveraging the capabilities of [Chainlink's Verifiable Randomness Function (VRF)](https://docs.chain.link/vrf), we achieve this impartial selection process.
 
 ## Chainlink VRF - Subscription Dashboard
 <img width="887" alt="image" src="https://github.com/SW-SignWise/SmartContracts/assets/102038261/94cac4e3-39e9-4765-b2cf-dc0bf1f7347c">
