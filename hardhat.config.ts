@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-gas-reporter";
 require("dotenv").config();
 
 const config: HardhatUserConfig = {
@@ -68,6 +69,11 @@ const config: HardhatUserConfig = {
         },
       },
     ],
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "EUR",
+    token: "AVAX",
   },
 };
 

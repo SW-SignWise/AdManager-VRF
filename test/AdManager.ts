@@ -2,8 +2,6 @@ import { Signer } from "ethers";
 import { ethers } from "hardhat";
 import { expect } from "chai";
 import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers"; // Import loadFixture correctly
-import AdManager from "../artifacts/contracts/AdManager.sol/AdManager.json";
-require("dotenv").config();
 
 describe("AdManager", () => {
   async function deployContract() {
