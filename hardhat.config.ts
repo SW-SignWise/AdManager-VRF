@@ -1,7 +1,11 @@
+import { loadPrivateKeys } from './security/foundry-keystore.js';
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-gas-reporter";
 require("dotenv").config();
+
+const localKeys = loadPrivateKeys("PRIVATE_KEY", "PRIVATE_KEY2");
+const localBalances = ["10000000000000000000000","10000000000000000000000"];
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -11,28 +15,19 @@ const config: HardhatUserConfig = {
       forking: {
         url: process.env.RPC_FUJI_TESTNET!,
       },
-      accounts: [
-        {
-          privateKey: process.env.PRIVATE_KEY!,
-          balance: "10000000000000000000000",
-        },
-        {
-          privateKey: process.env.PRIVATE_KEY2!,
-          balance: "10000000000000000000000",
-        },
-      ],
+      accounts: localKeys.length ? localKeys.map((privateKey, i) => ({ privateKey, balance: localBalances[i]! })) : undefined,
     },
     AvaxFuji: {
       url: process.env.RPC_FUJI_TESTNET!,
-      accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY2!],
+      accounts: loadPrivateKeys("PRIVATE_KEY", "PRIVATE_KEY2"),
     },
     PolygonMainet: {
       url: process.env.RPC_POLYGON_MAINNET!,
-      accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY2!],
+      accounts: loadPrivateKeys("PRIVATE_KEY", "PRIVATE_KEY2"),
     },
     snowtrace: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
-      accounts: [process.env.PRIVATE_KEY!],
+      accounts: loadPrivateKeys("PRIVATE_KEY"),
     },
   },
   solidity: {
